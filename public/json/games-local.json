@@ -632,6 +632,15 @@
     "proxy": true
   },
   {
+    "name": "Krunker",
+    "image": "retrobowl.webp",
+    "url": "https://krunker.io/,
+    "new": false,
+    "updated": false,
+    "top": true,
+    "proxy": true
+  },
+  {
     "name": "Super Mario 64",
     "image": "sm64.webp",
     "url": "https://augustberchelmann.com/mario/",
