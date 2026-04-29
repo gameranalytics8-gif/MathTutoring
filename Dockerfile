@@ -5,8 +5,10 @@ RUN apk add --no-cache git && npm install -g pnpm
 WORKDIR /app
 
 COPY package.json pnpm-lock.yaml ./
-# Copy pre-installed node_modules to skip broken remote fetch
-COPY node_modules ./node_modules
+
+# Remove the broken GitHub tarball entry from the lockfile and reinstall
+RUN sed -i '/scramjet/,/^$/d' pnpm-lock.yaml || true && \
+    pnpm install --prod --no-frozen-lockfile
 
 COPY . .
 
