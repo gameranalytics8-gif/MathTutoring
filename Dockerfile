@@ -6,9 +6,7 @@ WORKDIR /app
 
 COPY package.json pnpm-lock.yaml ./
 
-# Remove the broken GitHub tarball entry from the lockfile and reinstall
-RUN sed -i '/scramjet/,/^$/d' pnpm-lock.yaml || true && \
-    pnpm install --prod --no-frozen-lockfile
+RUN pnpm install --prod --frozen-lockfile
 
 COPY . .
 
